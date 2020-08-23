@@ -9,6 +9,11 @@ public class Controller {
         return "Hello Coders";
     }
 
+    @GetMapping("/hello")
+    public String sayHello2(){
+        return "Hello new  Coders";
+    }
+
     @GetMapping("/usd_to_inr")
     public int convertToINR(@RequestParam int q) {
         int usd = q;
