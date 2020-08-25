@@ -1,5 +1,7 @@
 package com.example.springbasic.demo;
 
+import org.springframework.web.bind.annotation.RequestParam;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +27,17 @@ public class DB {
         }
         System.out.println("Couldn't find the user with this id.");
         return null;
+    }
+
+    public boolean updateAUser(User inputUser) {
+        for (User user : userTable) {
+            if(user.getId() == inputUser.getId()) {
+                user.setAge(inputUser.getAge());
+                user.setName(inputUser.getName());
+                return true;
+            }
+        }
+        return false;
     }
 
 }

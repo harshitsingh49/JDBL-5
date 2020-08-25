@@ -41,14 +41,19 @@ public class Controller {
     }
 
     // search a user by user_id
-    @GetMapping("serach/users")
+    @GetMapping("/serach/users")
     public User findUser(@RequestParam int id){
         return db.findUser(id);
     }
 
-    @GetMapping("serach/users/{id}")
+    @GetMapping("/serach/users/{id}")
     public User findUserUsingPath(@PathVariable int id){
         return db.findUser(id);
+    }
+
+    @PutMapping("/users")
+    public boolean  updateAUser(@RequestBody User user){
+         return db.updateAUser(user);
     }
 
 }
